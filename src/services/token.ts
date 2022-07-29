@@ -3,7 +3,7 @@ import User from '../interfaces/user';
 
 const generateToken = (user: User): string => {
   const payload = user;
-  const secret = process.env.JWT_SECRET as string;
+  const secret = process.env.JWT_SECRET as string || 'secret';
   const options: SignOptions = {
     algorithm: 'ES256',
     expiresIn: '7d',
