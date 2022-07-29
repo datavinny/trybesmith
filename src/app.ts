@@ -1,5 +1,4 @@
-import express, { Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
+import express from 'express';
 import 'express-async-errors';
 import error from './controllers/middlewares/error';
 import ProductRoutes from './routes/products';
