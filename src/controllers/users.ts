@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import UserService from '../services/users';
+import generateToken from '../services/token';
 
 class UsersController {
   constructor(private userService = new UserService()) { }
@@ -13,7 +14,8 @@ class UsersController {
   public create = async (req: Request, res: Response) => {
     const user = req.body;
     const userCreated = await this.userService.create(user);
-    res.status(StatusCodes.CREATED).json(userCreated);
+    const token = generateToken(userCreated);
+    res.status(StatusCodes.CREATED).json({ token });
   };
 }
 
