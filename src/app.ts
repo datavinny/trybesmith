@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import 'express-async-errors';
 import error from './controllers/middlewares/error';
 import ProductRoutes from './routes/products';
+import UserRoutes from './routes/users';
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use(ProductRoutes);
+app.use(UserRoutes);
 // middleware de error
 app.use(error);
 
