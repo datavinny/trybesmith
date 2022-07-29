@@ -10,13 +10,9 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/', (req: Request, res: Response) => {
-  res.status(StatusCodes.OK).send('Express + TypeScript');
-});
-
-app.use(OrdersRoutes);
 app.use(ProductRoutes);
 app.use(UserRoutes);
+app.use(OrdersRoutes);
 // middleware de error
 app.use(error);
 

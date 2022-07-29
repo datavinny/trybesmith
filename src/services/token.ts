@@ -5,7 +5,7 @@ const generateToken = (user: User): string => {
   const payload = user;
   const secret = process.env.JWT_SECRET as string || 'secret';
   const options: SignOptions = {
-    algorithm: 'ES256',
+    algorithm: 'HS256',
     expiresIn: '7d',
   };
   const token = jwt.sign(payload, secret, options);
